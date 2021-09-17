@@ -1,7 +1,9 @@
 import React, {FC} from 'react'
 import styles from './Header.module.scss'
 
-interface Props {
+interface
+Props
+{
 
 }
 
@@ -19,14 +21,13 @@ export const Header: FC<Props> = props => {
                             </div>
                         </div>
 
-                        <div className="col-md-6 text-center">
-                            <div className={styles.headerLogo}>
-                                Logo
-                            </div>
+                        <div className="col-md-6 d-flex justify-content-center">
+                            <div className={styles.headerLogo}/>
                         </div>
 
                         <div className="col-md-3 text-end">
-                            <div className={`${styles.headerIconWrapper} d-flex align-items-center justify-content-end`}>
+                            <div
+                                className={`${styles.headerIconWrapper} d-flex align-items-center justify-content-end`}>
                                 <div className={`${styles.headerIcon} ${styles.headerUser}`}/>
                                 <span className={`${styles.headerIconText}`}>Username</span>
                             </div>

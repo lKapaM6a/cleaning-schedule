@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals'
 import Home from "./pages/Home"
 
 //libs
-import './assets/styles/libs/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //styles
 import './assets/styles/main.scss'

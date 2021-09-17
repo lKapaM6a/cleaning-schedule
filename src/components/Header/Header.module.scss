@@ -28,6 +28,18 @@
         }
     }
 
+    .headerLogo {
+        background: url(../../assets/images/icons/logo.svg) no-repeat center center;
+        width: 65px;
+        height: 20px;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            opacity: 0.75;
+        }
+    }
+
     .headerIconText {
         margin-left: 0.5rem;
         font-weight: 600;
