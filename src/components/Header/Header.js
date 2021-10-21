@@ -1,36 +1,28 @@
-import React, {FC} from 'react'
+import React from 'react'
 import styles from './Header.module.scss'
+import {HeaderMenu} from "./components/HeaderMenu";
+import {HeaderLogo} from "./components/HeaderLogo";
+import {HeaderInteraction} from "./components/HeaderInteraction";
 
-interface
-Props
-{
 
-}
+export const Header = props => {
 
-export const Header: FC<Props> = props => {
 
     return (
         <>
             <header className={styles.header}>
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-3">
-                            <div className={`${styles.headerIconWrapper} d-flex align-items-center`}>
-                                <div className={`${styles.headerIcon} ${styles.headerBurger}`}/>
-                                <span className={`${styles.headerIconText}`}>Open menu</span>
-                            </div>
+                    <div className="row align-items-center">
+                        <div className="col-3">
+                            <HeaderMenu/>
                         </div>
 
-                        <div className="col-md-6 d-flex justify-content-center">
-                            <div className={styles.headerLogo}/>
+                        <div className="col-6 d-flex justify-content-center">
+                            <HeaderLogo/>
                         </div>
 
-                        <div className="col-md-3 text-end">
-                            <div
-                                className={`${styles.headerIconWrapper} d-flex align-items-center justify-content-end`}>
-                                <div className={`${styles.headerIcon} ${styles.headerUser}`}/>
-                                <span className={`${styles.headerIconText}`}>Username</span>
-                            </div>
+                        <div className="col-3 text-end">
+                            <HeaderInteraction/>
                         </div>
                     </div>
                 </div>
