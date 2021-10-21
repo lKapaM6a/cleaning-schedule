@@ -8,6 +8,10 @@
         background: url(../../assets/images/icons/logo.svg) no-repeat center center;
         width: 65px;
         height: 20px;
+        display: block;
+    }
+
+    a.headerLogo {
         cursor: pointer;
 
         &:hover,
@@ -20,4 +24,12 @@
         text-transform: initial;
         color: #000;
     }
+
+
+}
+
+.link,
+.link span {
+    font-weight: 500;
+    font-size: 0.875rem;
 }

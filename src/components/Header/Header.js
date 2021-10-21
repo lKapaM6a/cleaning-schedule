@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {FC} from 'react'
 import styles from './Header.module.scss'
 import {HeaderMenu} from "./components/HeaderMenu";
 import {HeaderLogo} from "./components/HeaderLogo";
 import {HeaderInteraction} from "./components/HeaderInteraction";
 
+interface Props {
+}
 
-export const Header = props => {
-
+export const Header: FC<Props> = props => {
+    const {logoLink} = props
 
     return (
         <>
@@ -18,7 +20,7 @@ export const Header = props => {
                         </div>
 
                         <div className="col-6 d-flex justify-content-center">
-                            <HeaderLogo/>
+                            <HeaderLogo logoLink={logoLink}/>
                         </div>
 
                         <div className="col-3 text-end">
@@ -30,4 +32,3 @@ export const Header = props => {
         </>
     )
 }
-

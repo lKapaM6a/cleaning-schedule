@@ -1,18 +1,62 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
-import Home from "./pages/Home"
 
-//libs
+// Libs
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//styles
+// Styles
 import './assets/styles/main.scss'
+
+// Pages
+import Home from "./pages/Home"
+import Users from "./pages/Users";
+import Calendar from "./pages/Calendar";
+import Drafts from "./pages/Drafts";
+import Settings from "./pages/Settings";
+import Spam from "./pages/Spam";
+import Stats from "./pages/Stats";
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <Home/>
+        <Router>
+            <Switch>
+                <Route path="/">
+                    <Home/>
+                </Route>
+
+                <Route path="/users">
+                    <Users/>
+                </Route>
+
+                <Route path="/calendar">
+                    <Calendar/>
+                </Route>
+
+                <Route path="/drafts">
+                    <Drafts/>
+                </Route>
+
+                <Route path="/settings">
+                    <Settings/>
+                </Route>
+
+                <Route path="/spam">
+                    <Spam/>
+                </Route>
+
+                <Route path="/stats">
+                    <Stats/>
+                </Route>
+            </Switch>
+        </Router>
     </React.StrictMode>,
     document.getElementById('root')
 );
