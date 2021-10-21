@@ -101,7 +101,7 @@ export const HeaderInteraction = props => {
                         <ListItemIcon>
                             <PieChartIcon fontSize="small"/>
                         </ListItemIcon>
-                        <span className="fw-semibold fs-14">Статистика</span>
+                        <span className="fw-semibold fs-14">Статистика22</span>
                     </MenuItem>
                 </Link>
 

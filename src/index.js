@@ -8,53 +8,38 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Styles
 import './assets/styles/main.scss'
 
-// Pages
-import Home from "./pages/Home"
-import Users from "./pages/Users";
-import Calendar from "./pages/Calendar";
-import Drafts from "./pages/Drafts";
-import Settings from "./pages/Settings";
-import Spam from "./pages/Spam";
-import Stats from "./pages/Stats";
-
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
 
+// Pages
+import Home from "./pages";
+import UsersPage from "./pages/users/users";
+import CalendarPage from "./pages/calendar/calendar";
+import DraftsPage from "./pages/drafts/drafts";
+import SettingsPage from "./pages/settings/settings";
+import SpamPage from "./pages/spam/spam";
+import StatsPage from "./pages/stats/stats";
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Switch>
-                <Route path="/">
-                    <Home/>
-                </Route>
+                <Route exact path="/" component={Home}/>
 
-                <Route path="/users">
-                    <Users/>
-                </Route>
+                <Route path="/users" component={UsersPage}/>
 
-                <Route path="/calendar">
-                    <Calendar/>
-                </Route>
+                <Route path="/calendar" component={CalendarPage}/>
 
-                <Route path="/drafts">
-                    <Drafts/>
-                </Route>
+                <Route path="/drafts" component={DraftsPage}/>
 
-                <Route path="/settings">
-                    <Settings/>
-                </Route>
+                <Route path="/settings" component={SettingsPage}/>
 
-                <Route path="/spam">
-                    <Spam/>
-                </Route>
+                <Route path="/spam" component={SpamPage}/>
 
-                <Route path="/stats">
-                    <Stats/>
-                </Route>
+                <Route path="/stats" component={StatsPage}/>
             </Switch>
         </Router>
     </React.StrictMode>,
