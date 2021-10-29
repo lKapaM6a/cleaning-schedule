@@ -1,7 +1,7 @@
 import React from 'react'
 import {Layout} from "../../components/Layout/Layout";
 
-const SettingsPage = props => {
+export const SettingsPage = props => {
     return (
         <Layout logoLink={true}>
             <div className='container my-5'>
@@ -11,5 +11,4 @@ const SettingsPage = props => {
         </Layout>
     )
 }
-export default SettingsPage
 

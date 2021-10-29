@@ -13,6 +13,7 @@ import Settings from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import {Link} from "react-router-dom";
+import styles from '../Header.module.scss'
 
 export const HeaderInteraction = props => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -32,7 +33,7 @@ export const HeaderInteraction = props => {
 
     return (
         <>
-            <Tooltip title="Открыть навигацию">
+            <Tooltip title="Открыть панель юзера">
                 <IconButton onClick={handleClick} size="small" sx={{ml: 2}}>
                     <Avatar sx={{width: 32, height: 32}}>{userNameIcon}</Avatar>
                 </IconButton>
@@ -71,55 +72,65 @@ export const HeaderInteraction = props => {
                 }}
                 transformOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}>
-                <MenuItem>
-                    <ListItemIcon>
-                        <PersonIcon fontSize="small"/>
-                    </ListItemIcon>
-                    <span className="fw-semibold fs-14">Супер админ</span>
-                </MenuItem>
+                <Link className={`d-block ${styles.linkInteraction}`} to="/users">
+                    <MenuItem to="/users">
+                        <ListItemIcon>
+                            <PersonIcon fontSize="small"/>
+                        </ListItemIcon>
+                        <span className="fw-semibold fs-14">Супер админ</span>
+                    </MenuItem>
+                </Link>
 
-                <Divider/>
+                <Divider className='my-1'/>
 
-                <MenuItem>
-                    <ListItemIcon>
-                        <PersonAdd fontSize="small"/>
-                    </ListItemIcon>
-                    <span className="fw-semibold fs-14">Добавить пользователя</span>
-                </MenuItem>
+                <Link className={`d-block ${styles.linkInteraction}`} to="/users">
+                    <MenuItem>
+                        <ListItemIcon>
+                            <PersonAdd fontSize="small"/>
+                        </ListItemIcon>
+                        <span className="fw-semibold fs-14">Добавить пользователя</span>
+                    </MenuItem>
+                </Link>
 
-                <MenuItem>
-                    <ListItemIcon>
-                        <PersonRemoveIcon fontSize="small"/>
-                    </ListItemIcon>
-                    <span className="fw-semibold fs-14">Удалить пользователя</span>
-                </MenuItem>
+                <Link className={`d-block ${styles.linkInteraction}`} to="/users">
+                    <MenuItem>
+                        <ListItemIcon>
+                            <PersonRemoveIcon fontSize="small"/>
+                        </ListItemIcon>
+                        <span className="fw-semibold fs-14">Удалить пользователя</span>
+                    </MenuItem>
+                </Link>
 
-                <Divider/>
+                <Divider className='my-1'/>
 
-                <Link to="/stats">
+                <Link className={`d-block ${styles.linkInteraction}`} to="/stats">
                     <MenuItem>
                         <ListItemIcon>
                             <PieChartIcon fontSize="small"/>
                         </ListItemIcon>
-                        <span className="fw-semibold fs-14">Статистика22</span>
+                        <span className="fw-semibold fs-14">Статистика</span>
                     </MenuItem>
                 </Link>
 
-                <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small"/>
-                    </ListItemIcon>
-                    <span className="fw-semibold fs-14">Настройки</span>
-                </MenuItem>
+                <Link className={`d-block ${styles.linkInteraction}`} to="/settings">
+                    <MenuItem>
+                        <ListItemIcon>
+                            <Settings fontSize="small"/>
+                        </ListItemIcon>
+                        <span className="fw-semibold fs-14">Настройки</span>
+                    </MenuItem>
+                </Link>
 
-                <Divider/>
+                <Divider className='my-1'/>
 
-                <MenuItem>
-                    <ListItemIcon>
-                        <LogoutIcon fontSize="small"/>
-                    </ListItemIcon>
-                    <span className="fw-semibold fs-14">Выйти</span>
-                </MenuItem>
+                <Link className={`d-block ${styles.linkLogout}`} to="/">
+                    <MenuItem>
+                        <ListItemIcon>
+                            <LogoutIcon fontSize="small"/>
+                        </ListItemIcon>
+                        <span className="fw-semibold fs-14">Выйти</span>
+                    </MenuItem>
+                </Link>
             </Menu>
         </>
     )

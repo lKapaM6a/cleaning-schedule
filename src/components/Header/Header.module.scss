@@ -33,3 +33,39 @@
     font-weight: 500;
     font-size: 0.875rem;
 }
+
+.linkInteraction {
+    color: #1976d2;
+    transition: all .3s ease;
+
+    svg {
+        color: #1976d2;
+        transition: all .3s ease;
+    }
+
+    &:hover {
+        color: darken(#1976d2, 15%);
+
+        svg {
+            color: darken(#1976d2, 15%);
+        }
+    }
+}
+
+.linkLogout {
+    color: #ff6666;
+    transition: all .3s ease;
+
+    svg {
+        color: #ff6666;
+        transition: all .3s ease;
+    }
+
+    &:hover {
+        color: darken(#ff6666, 15%);
+
+        svg {
+            color: darken(#ff6666, 15%);
+        }
+    }
+}

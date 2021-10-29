@@ -10,6 +10,13 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import {Link} from "react-router-dom";
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import SettingsIcon from '@mui/icons-material/Settings';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import HourglassDisabledIcon from '@mui/icons-material/HourglassDisabled';
 
 export const HeaderMenu: FC<props> = props => {
 
@@ -32,31 +39,6 @@ export const HeaderMenu: FC<props> = props => {
         setState({...state, [anchor]: open});
     };
 
-    const list = (anchor) => (
-        <Box
-            sx={{width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 280}}
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List>
-                {['Статистика', 'Пользователи', 'Настройки', 'Черновики'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemText className={styles.link} primary={text}/>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider/>
-            <List>
-                {['Календарь', 'Спам'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemText className={styles.link} primary={text}/>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
-
     return (
         <>
             <React.Fragment key={'left'}>
@@ -73,7 +55,58 @@ export const HeaderMenu: FC<props> = props => {
                     onClose={toggleDrawer('left', false)}
                     onOpen={toggleDrawer('left', true)}
                 >
-                    {list('left')}
+                    <Box
+                        sx={{width: 'left' === 'top' || 'left' === 'bottom' ? 'auto' : 280}}
+                        role="presentation"
+                        onClick={toggleDrawer('left', false)}
+                        onKeyDown={toggleDrawer('left', false)}
+                    >
+                        <List>
+                            <Link className={`d-block ${styles.linkInteraction}`} to="/stats">
+                                <ListItem button key={'Статистика'}>
+                                    <QueryStatsIcon fontSize={'small'} className='me-2'/>
+                                    <ListItemText className={styles.link} primary={'Статистика'}/>
+                                </ListItem>
+                            </Link>
+
+                            <Link className={`d-block ${styles.linkInteraction}`} to="/users">
+                                <ListItem button key={'Пользователи'}>
+                                    <PeopleAltIcon fontSize={'small'} className='me-2'/>
+                                    <ListItemText className={styles.link} primary={'Пользователи'}/>
+                                </ListItem>
+                            </Link>
+
+                            <Link className={`d-block ${styles.linkInteraction}`} to="/settings">
+                                <ListItem button key={'Настройки'}>
+                                    <SettingsIcon fontSize={'small'} className='me-2'/>
+                                    <ListItemText className={styles.link} primary={'Настройки'}/>
+                                </ListItem>
+                            </Link>
+
+                            <Link className={`d-block ${styles.linkInteraction}`} to="/drafts">
+                                <ListItem button key={'Черновики'}>
+                                    <DraftsIcon fontSize={'small'} className='me-2'/>
+                                    <ListItemText className={styles.link} primary={'Черновики'}/>
+                                </ListItem>
+                            </Link>
+                        </List>
+                        <Divider/>
+                        <List>
+                            <Link className={`d-block ${styles.linkInteraction}`} to="/calendar">
+                                <ListItem button key={'Календарь'}>
+                                    <CalendarTodayIcon fontSize={'small'} className='me-2'/>
+                                    <ListItemText className={styles.link} primary={'Календарь'}/>
+                                </ListItem>
+                            </Link>
+
+                            <Link className={`d-block ${styles.linkInteraction}`} to="/spam">
+                                <ListItem button key={'Спам'}>
+                                    <HourglassDisabledIcon fontSize={'small'} className='me-2'/>
+                                    <ListItemText className={styles.link} primary={'Спам'}/>
+                                </ListItem>
+                            </Link>
+                        </List>
+                    </Box>
                 </SwipeableDrawer>
             </React.Fragment>
         </>
@@ -87,5 +120,5 @@ export interface HeaderMenuLocalization {
 
 const localization: HeaderMenuLocalization = {
     menu: 'Меню',
-    showMenu: 'Вернуться на главную страницу',
+    showMenu: 'Открыть меню',
 }

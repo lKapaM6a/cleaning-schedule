@@ -23,8 +23,8 @@ export const Home = props => {
     }
 
     const rows = [
-        createData('Тест Тест Тест', 'Выполнен', 'true'),
-        createData('Тест 2 Тест 2 Тест 2', 'Не выполнен', 'false'),
+        createData('Тест', 'Выполнен', 'true'),
+        createData('Тест 2', 'Не выполнен', 'false'),
     ];
 
     const label = {inputProps: {'aria-label': 'checkbox'}};

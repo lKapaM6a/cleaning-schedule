@@ -15,19 +15,19 @@ import {
 } from "react-router-dom";
 
 // Pages
-import Home from "./pages";
-import UsersPage from "./pages/users/users";
-import CalendarPage from "./pages/calendar/calendar";
-import DraftsPage from "./pages/drafts/drafts";
-import SettingsPage from "./pages/settings/settings";
-import SpamPage from "./pages/spam/spam";
-import StatsPage from "./pages/stats/stats";
+import {HomePage} from "./pages";
+import {UsersPage} from "./pages/users/users";
+import {CalendarPage} from "./pages/calendar/calendar";
+import {DraftsPage} from "./pages/drafts/drafts";
+import {SettingsPage} from "./pages/settings/settings";
+import {SpamPage} from "./pages/spam/spam";
+import {StatsPage} from "./pages/stats/stats";
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Switch>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/" component={HomePage}/>
 
                 <Route path="/users" component={UsersPage}/>
 
