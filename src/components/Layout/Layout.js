@@ -1,4 +1,5 @@
-import React, {FC} from 'react'
+import React, {FC, useState, useEffect, useRef} from 'react'
+import LoadingBar from "react-top-loading-bar";
 import {Footer} from '../Footer/Footer'
 import {Header} from '../Header/Header'
 import {Breadcrumbs} from "../Header/components/Breadcrumbs";
@@ -19,23 +20,41 @@ export const Layout: FC<Props> = props => {
         logoLink
     } = props
 
+    const ref = useRef(null);
+
+    const loaderPage = () => {
+        ref.current.complete();
+    };
+
+    useEffect(() => (
+        loaderPage()
+    ), []);
+
     return (
-        <div className="page">
-            <div className="page__wrapper">
-                {header && (
-                    <Header logoLink={logoLink}/>
-                )}
+        <>
+            <LoadingBar
+                height={3}
+                color='#1976d2'
+                ref={ref}
+            />
 
-                {breadcrumbs && (
-                    <Breadcrumbs/>
-                )}
+            <div className="page">
+                <div className="page__wrapper">
+                    {header && (
+                        <Header logoLink={logoLink}/>
+                    )}
 
-                <div className="page__body">
-                    {children}
+                    {breadcrumbs && (
+                        <Breadcrumbs/>
+                    )}
+
+                    <div className="page__body">
+                        {children}
+                    </div>
                 </div>
-            </div>
 
-            {footer && <Footer/>}
-        </div>
+                {footer && <Footer/>}
+            </div>
+        </>
     )
 }
